@@ -257,3 +257,7 @@ Ao criar o hotspot, o mikrotik automaticamente gerou uma pasta com os arquivos r
 - Faz sentido ter diferentes tipos de autenticação, oferecendo diferentes níveis de acesso/privilégio?
   - Por exemplo, membros do movimento, acampados, coordenadores, poderiam autenticar com o App da Vitória
   - Se tivermos que limitar quantidade de uso de banda e transferência por questões de custo, por exemplo, podemos querer garantir acesso ilimitado ou menos restrito aos membros, ou coisa do tipo
+
+## Fluxograma para acesso a rede - Versão esboço
+![Cozinhas](https://user-images.githubusercontent.com/26493929/136297031-0ea97ed8-14dd-4574-a27b-9342092caf2b.png)
+
