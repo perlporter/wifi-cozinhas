@@ -1,5 +1,5 @@
 # Cozinhas HotSpot
-Cozinha HotSpot é um HotSpot ( xxMVPxx ) para ser executado em cozinhas solidárias utilizando Mikrotik.
+Cozinha HotSpot é um HotSpot (https://en.wikipedia.org/wiki/Captive_portal ) para ser executado em cozinhas solidárias utilizando Mikrotik.
 
 ![image](https://user-images.githubusercontent.com/26493929/143506714-d9248ad9-6bd1-409e-b21a-123b44551a8d.png)
 
