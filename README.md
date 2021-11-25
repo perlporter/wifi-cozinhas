@@ -33,7 +33,7 @@ Javascript
 NOTA: clique em cada link para ler seus documentos [Em construção].
 
 # Notas
-Não existe um protótipo oficial ainda, embora o código esteja funcionando em construção corretamente (deve ter bugs - tenho certeza).
+Não existe um protótipo oficial ainda, embora o código esteja em construção (deve ter bugs - tenho certeza).
 
 # Referências
 [Em construção]
