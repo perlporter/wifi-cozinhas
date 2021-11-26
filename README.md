@@ -18,6 +18,9 @@ Cozinha HotSpot é um HotSpot (https://en.wikipedia.org/wiki/Captive_portal ) pa
 9) O usuário lê e concorda com os Termos de uso
 10) O acesso é liberado ao usuário
 
+![Untitled Diagram-Page-1](https://user-images.githubusercontent.com/26493929/143511472-d60bd220-210f-4a0c-bc9d-93fc1886c41f.jpg)
+
+
 # Pagina Institucional [em construção]
 Requisitos
 HTML 5
