@@ -1,3 +1,5 @@
+'''bash
+
 1) No Mikrotik, criar o Hotspot
 2) No Mikrotik, criar um login que aceite varias conexões simultaneas
 3) Redirecionar o Mikrotik para o hmtl "Pagina Institucional"
@@ -13,3 +15,5 @@
 Problematicas:
 1) Bot paralelo do whatsapp para apagar mensagens diariamente e inputar dados no banco de dados
 2) Liberar tres paginas no mikrotik? É possível iberar whatsapp no mikrotik por apenas 15m antes do "login"? 
+
+'''
