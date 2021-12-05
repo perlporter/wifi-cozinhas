@@ -7,8 +7,9 @@
 - [ ] 7) No html "Termos de Uso" usar o botão ACEITAR como o botão de conectar
 - [ ] 8) Armazenar Mac Address para novas conexões ou expirar após algum tempo?
 - [ ] 9) Armazenar logs associando ao IP/mac address
-- [ ] 10) Criar um robô para armazenar diariamente números de telefone do whatsapp
-- [ ] 11) Criar um robô para apagar diariamente os chats de conversa do whatsapp
+- [ ] 10) Ajustar Mikrotik para redirecionamento HTTPS: https://tiparaleigo.wordpress.com/2020/06/02/redirecionamento-https-do-hotspot-mikrotik-e-configuracao-de-login-https/
+- [ ] 11) Criar um robô para armazenar diariamente números de telefone do whatsapp
+- [ ] 12) Criar um robô para apagar diariamente os chats de conversa do whatsapp
 
 Problematicas:
 1) Bot paralelo do whatsapp para apagar mensagens diariamente e inputar dados no banco de dados
