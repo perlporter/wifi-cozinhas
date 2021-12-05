@@ -1,0 +1,117 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+   "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html>
+<head>
+<title>Termos de Uso</title>
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+<meta http-equiv="pragma" content="no-cache" />
+<meta http-equiv="expires" content="-1" />
+<meta name="viewport" content="width=device-width; initial-scale=1.0; maximum-scale=1.0;"/>
+<style type="text/css">
+body {color: #737373; font-size: 10px; font-family: verdana;}
+
+textarea,input,select {
+background-color: #FDFBFB;
+border: 1px solid #BBBBBB;
+padding: 2px;
+margin: 1px;
+font-size: 14px;
+color: #808080;
+}
+
+a, a:link, a:visited, a:active { color: #AAAAAA; text-decoration: none; font-size: 10px; }
+a:hover { border-bottom: 1px dotted #c1c1c1; color: #AAAAAA; }
+img {border: none;}
+td { font-size: 14px; color: #7A7A7A; }
+</style>
+
+</head>
+
+<body>
+	$(if chap-id)
+	<form name="sendin" action="$(link-login-only)" method="post">
+		<input type="hidden" name="username" />
+		<input type="hidden" name="password" />
+		<input type="hidden" name="dst" value="$(link-orig)" />
+		<input type="hidden" name="popup" value="true" />
+	</form>
+
+	<script type="text/javascript" src="/md5.js"></script>
+	<script type="text/javascript">
+	<!--
+		function doLogin() {
+			document.sendin.username.value = document.login.username.value;
+			document.sendin.password.value = hexMD5('$(chap-id)' + document.login.password.value + '$(chap-challenge)');
+			document.sendin.submit();
+			return false;
+		}
+		//-->
+	</script>
+	$(endif)
+
+	<div align="center">
+		<a href="$(link-login-only)?target=lv&amp;dst=$(link-orig-esc)">Latviski</a>
+	</div>
+
+	<table width="100%" style="margin-top: 10%;">
+		<tr>
+			<td align="center" valign="middle">
+				<div class="notice" style="color: #c1c1c1; font-size: 9px">
+					Leia e aceite os termos de uso para conectar<br />
+					$(if trial == 'yes')Free trial available, <a style="color: #FF8080" href="$(link-login-only)?dst=$(link-orig-esc)&amp;username=T-$(mac-esc)">click here</a>.$(endif)
+				</div><br />
+				<table width="280" height="280" style="border: 1px solid #cccccc; padding: 0px;" cellpadding="0" cellspacing="0">
+					<tr>
+						<td align="center" valign="bottom" height="175" colspan="2">
+							<form name="login" action="$(link-login-only)" method="post"
+								  $(if=$(if chap-id)=chap-id) onSubmit="return doLogin()" $(endif)=$(endif)>
+								<input type="hidden" name="dst" value="$(link-orig)" />
+								<input type="hidden" name="popup" value="true" />
+
+
+								<!--    criar e alterar o username e o password -->
+								<table width="40" style="background-color: #ffffff">
+									<tr style="display: none;">
+										<td align="right"> login </td>
+										<td> <input style="width: 20px" name="username" type="text" value="notsosecretuser" /> </td>
+									</tr>
+									<tr style="display: none;">
+										<td align="right"> senha </td>
+										<td> <input style="width: 20px" name="password" t=t ype="password" value="notsosecretpass" /> </td>
+									</tr>
+									<tr>
+										<td> </td>
+										<td> <input style="background-color: #008000" type="submit" value="ACEITAR" /> </td>
+										<td> </td>
+									</tr>
+								</table>
+
+							</form>
+						</td>
+					</tr>
+				</table>
+			</td>
+		</tr>
+		<tr><td align="center"><a href="http://www.mtst.org" target="_blank" style="border: none;"><img src="data:image/png;base64,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" alt="MTST, A LUTA É PRA VALER" /></a></td></tr>
+		</td>
+
+		</tr>
+
+		<br />
+		<div style="color: #c1c1c1; font-size: 9px">Cozinha Solidária</div>
+		$(if error)
+		<br />
+		<div style="color: #FF8080; font-size: 9px">$(error)</div>$(endif)
+		</td>
+		</tr>
+	</table>
+
+
+
+	<script type="text/javascript">
+<!--
+		document.login.username.focus();
+//-->
+	</script>
+</body>
+</html>
