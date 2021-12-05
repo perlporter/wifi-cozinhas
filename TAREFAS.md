@@ -1,5 +1,7 @@
-- [ ] 1) No Mikrotik, criar o Hotspot
-- [ ] 2) No Mikrotik, criar um login que aceite varias conexões simultaneas
+- [ ] 1) No Mikrotik, criar o Hotspot: https://andreysmith.wordpress.com/2010/04/11/mikrotik-criando-um-hotspot/
+
+- [ ] 2) No Mikrotik, criar um login que aceite varias conexões simultaneas: https://andreysmith.wordpress.com/2010/04/11/mikrotik-criando-um-hotspot/   /  https://mum.mikrotik.com/presentations/BR15/presentation_2527_1447344805.pdf
+
 - [ ] 3) Redirecionar o Mikrotik para o hmtl "Pagina Institucional"
 - [ ] 4) No html "Pagina Institucional" incluir material sobre o MTST e um Botão para o WhatsApp
 - [ ] 5) No Wpp business, criar uma resposta automática com link para a pagina "Termos de Uso"
