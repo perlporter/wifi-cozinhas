@@ -8,6 +8,8 @@
 
 - [ ] 5) No Wpp business, criar uma resposta automática com link para a pagina "Termos de Uso": https://wiki.mikrotik.com/wiki/Manual:Customizing_Hotspot 
               flogin.html e redirect.html ou rlogin.html ou radvert.html ou rlogin.html (todos como Termos de Uso)
+              **
+se o usuário não estiver conectado e o host de destino não for permitido pelo walled garden, rlogin.html será exibido; se rlogin.html não for encontrado, redirect.html é usado para redirecionar para a página de login
 
 - [ ] 6) No html "Termos de Uso" usar a ´pagina de login alterando no formulario colocando nos campos usuário e senha como ocultos
 
