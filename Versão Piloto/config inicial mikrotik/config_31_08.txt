@@ -1,0 +1,91 @@
+/interface bridge
+add name=br-lan
+add name=br-wifi
+/interface ethernet
+set [ find default-name=ether1 ] advertise=\
+    10M-half,10M-full,100M-half,100M-full,1000M-half,1000M-full
+set [ find default-name=ether2 ] advertise=\
+    10M-half,10M-full,100M-half,100M-full,1000M-half,1000M-full
+set [ find default-name=ether3 ] advertise=\
+    10M-half,10M-full,100M-half,100M-full,1000M-half,1000M-full
+set [ find default-name=ether4 ] advertise=\
+    10M-half,10M-full,100M-half,100M-full,1000M-half,1000M-full
+set [ find default-name=ether5 ] advertise=\
+    10M-half,10M-full,100M-half,100M-full,1000M-half,1000M-full
+/interface wireless security-profiles
+set [ find default=yes ] supplicant-identity=MikroTik
+/ip hotspot profile
+add hotspot-address=10.5.50.1 login-by=cookie,http-chap,trial name=hsprof1
+/ip ipsec proposal
+set [ find default=yes ] enc-algorithms=aes-128-cbc
+/ip pool
+add name=dhcp_pool0 ranges=10.1.1.2-10.1.1.254
+add name=hs-pool-7 ranges=10.5.50.2-10.5.50.254
+/ip dhcp-server
+add address-pool=dhcp_pool0 disabled=no interface=br-lan name=dhcp1
+add address-pool=hs-pool-7 disabled=no interface=br-wifi lease-time=1h name=\
+    dhcp2
+/ip hotspot
+add address-pool=hs-pool-7 disabled=no interface=br-wifi name=hotspot1 profile=\
+    hsprof1
+/interface bridge port
+add bridge=br-lan interface=ether2
+add bridge=br-lan interface=ether3
+add bridge=br-wifi interface=ether4
+add bridge=br-wifi interface=ether5
+/ip address
+add address=10.1.1.1/24 interface=br-lan network=10.1.1.0
+add address=10.5.50.1/24 comment="hotspot network" interface=br-wifi network=\
+    10.5.50.0
+/ip dhcp-client
+add disabled=no interface=ether1
+/ip dhcp-server network
+add address=10.1.1.0/24 gateway=10.1.1.1
+add address=10.5.50.0/24 comment="hotspot network" gateway=10.5.50.1
+/ip ipsec policy
+set 0 dst-address=0.0.0.0/0 src-address=0.0.0.0/0
+/ip service
+set www-ssl disabled=no
+/system clock
+set time-zone-autodetect=no time-zone-name=America/Sao_Paulo
+/system logging
+add topics=hotspot
+add action=disk topics=info
+/system scheduler
+add interval=1d name=Bakcup on-event=Backup policy=\
+    ftp,reboot,read,write,policy,test,password,sniff,sensitive,romon \
+    start-date=jul/18/2022 start-time=12:04:15
+add interval=1d name=Log on-event=Log policy=\
+    ftp,reboot,read,write,policy,test,password,sniff,sensitive,romon \
+    start-date=jul/18/2022 start-time=12:04:18
+/system script
+add dont-require-permissions=no name=Backup owner=admin policy=\
+    ftp,reboot,read,write,policy,test,password,sniff,sensitive,romon source="/sy\
+    stem backup save name=BKPcozinhaABC.backup \r\
+    \n:delay 2s \r\
+    \n:global data [/system clock get date] \r\
+    \n:global hora [/system clock get time] \r\
+    \n/tool e-mail send to=\"cozinhaspteste@outlook.com\" subject=\"Mikrotik: Ba\
+    ckup Automatico realizado em \$data as \$hora [COZINHA ABC SP]\" file=\"BKPc\
+    ozinhaTESTE.backup\" body=\"Em anexo, arquivo de backup da cozinha [COZINHA \
+    ABC SP] realizado as \$hora de \$data.\""
+add dont-require-permissions=no name=Log owner=admin policy=\
+    ftp,reboot,read,write,policy,test,password,sniff,sensitive,romon source="/lo\
+    g print file=LOGcozinhaABC.txt\r\
+    \n:delay 2s \r\
+    \n:global data [/system clock get date] \r\
+    \n:global hora [/system clock get time] \r\
+    \n/tool e-mail send to=\"cozinhaspteste@outlook.com\" subject=\"Mikrotik: Lo\
+    g Automatico realizado em \$data as \$hora [COZINHA ABC SP]\" file=\"LOGcozi\
+    nhaABC.txt\" body=\"Em anexo, arquivo de log da cozinha [COZINHA ABC SP] rea\
+    lizado realizado as \$hora de \$data na Cozinha [TESTE].\""
+add dont-require-permissions=no name=Clear owner=admin policy=\
+    ftp,reboot,read,write,policy,test,password,sniff,sensitive,romon source="/sy\
+    stem logging action set [find name=memory] target=email\r\
+    \n/system logging action set [find name=memory] target=memory"
+/tool e-mail
+set address=smtp.office365.com from=cozinhaspteste@outlook.com password=\
+    cozinhasp1313* port=587 start-tls=yes user=cozinhaspteste@outlook.com
+/tool sniffer
+set filter-interface=br-wifi filter-ip-address=10.5.50.247/32 \
+    streaming-enabled=yes streaming-server=192.168.15.19
