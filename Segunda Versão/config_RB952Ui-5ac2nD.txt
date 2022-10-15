@@ -1,0 +1,146 @@
+# oct/15/2022 00:14:16 by RouterOS 6.47.10
+# software id = 2K28-XR38
+#
+# model = RB952Ui-5ac2nD
+# serial number = F0E60FB2E6C4
+
+# Configura as interfaces wireless (2 e 5 GHz)
+/interface wireless
+set [ find default-name=wlan1 ] band=2ghz-b/g/n channel-width=20/40mhz-XX disabled=no distance=indoors frequency=auto installation=indoor mode=ap-bridge ssid=MikroTik-37ABA5 wireless-protocol=802.11
+set [ find default-name=wlan2 ] band=5ghz-a/n/ac channel-width=20/40/80mhz-XXXX disabled=no distance=indoors frequency=auto installation=indoor mode=ap-bridge ssid=MikroTik-37ABA4 wireless-protocol=802.11
+
+# Cria uma bridge só onde vai colocar todas as portas menos a 1 (q é WAN)
+/interface bridge
+add admin-mac=DC:2C:6E:37:AB:A0 auto-mac=no comment=defconf name=bridge
+
+# Colocas as portas todas na bridge
+/interface bridge port
+add bridge=bridge comment=defconf interface=ether2
+add bridge=bridge comment=defconf interface=ether3
+add bridge=bridge comment=defconf interface=ether4
+add bridge=bridge comment=defconf interface=ether5
+add bridge=bridge comment=defconf interface=wlan1
+add bridge=bridge comment=defconf interface=wlan2
+
+# Cria 2 "listas" de interfaces, WAN e LAN
+/interface list
+add comment=defconf name=WAN
+add comment=defconf name=LAN
+
+# Associa todo mundo da bridge à LAN, e a porta 1 à WAN
+/interface list member
+add comment=defconf interface=bridge list=LAN
+add comment=defconf interface=ether1 list=WAN
+
+/interface wireless security-profiles
+set [ find default=yes ] supplicant-identity=MikroTik
+
+# Associa IP à bridge
+/ip address
+add address=10.5.50.1/24 comment=defconf interface=bridge network=10.5.50.0
+
+# Configura porta 1 como cliente DHCP (para funcionar como porta WAN, recebendo a internet por aqui)
+/ip dhcp-client
+add comment=defconf disabled=no interface=ether1
+
+# Cria o pool de IPs que serão distribuídos pelo servidor DHCP
+/ip pool
+add name=default-dhcp ranges=10.5.50.2-10.5.50.254
+
+# Cria o servidor DHCP associado ao pool
+/ip dhcp-server
+add address-pool=default-dhcp disabled=no interface=bridge name=dhcp1
+
+# Configura o gatweway do servidor DHCP apontando para a bridge
+/ip dhcp-server network
+add address=10.5.50.0/24 comment="hotspot network" gateway=10.5.50.1
+
+# Cria perfil de hotspot
+/ip hotspot profile
+add hotspot-address=10.5.50.1 login-by=cookie,http-chap,trial name=hsprof1
+
+# Cria o servidor hotspot e associa ao perfil
+/ip hotspot
+add address-pool=default-dhcp disabled=no interface=bridge name=hotspot1 profile=\
+    hsprof1
+
+# Associa uma ação de log para disco aos eventos do hotstpot
+/system logging
+add topics=hotspot
+add action=disk topics=info
+
+# Agenda jobs de backup e envio de logs por email
+/system scheduler
+add interval=1d name=Backup on-event=Backup policy=\
+    ftp,reboot,read,write,policy,test,password,sniff,sensitive,romon \
+    start-date=jul/18/2022 start-time=12:04:15
+add interval=1d name=Log on-event=Log policy=\
+    ftp,reboot,read,write,policy,test,password,sniff,sensitive,romon \
+    start-date=jul/18/2022 start-time=12:04:18
+
+# Cria os scripts de log e backup
+/system script
+add dont-require-permissions=no name=Backup owner=admin policy=\
+    ftp,reboot,read,write,policy,test,password,sniff,sensitive,romon source="/sy\
+    stem backup save name=BKPcozinhaABC.backup \r\
+    \n:delay 2s \r\
+    \n:global data [/system clock get date] \r\
+    \n:global hora [/system clock get time] \r\
+    \n/tool e-mail send to=\"cozinhaspteste@outlook.com\" subject=\"Mikrotik: Ba\
+    ckup Automatico realizado em \$data as \$hora [COZINHA ABC SP]\" file=\"BKPc\
+    ozinhaTESTE.backup\" body=\"Em anexo, arquivo de backup da cozinha [COZINHA \
+    ABC SP] realizado as \$hora de \$data.\""
+
+add dont-require-permissions=no name=Log owner=admin policy=\
+    ftp,reboot,read,write,policy,test,password,sniff,sensitive,romon source="/lo\
+    g print file=LOGcozinhaABC.txt\r\
+    \n:delay 2s \r\
+    \n:global data [/system clock get date] \r\
+    \n:global hora [/system clock get time] \r\
+    \n/tool e-mail send to=\"cozinhaspteste@outlook.com\" subject=\"Mikrotik: Lo\
+    g Automatico realizado em \$data as \$hora [COZINHA ABC SP]\" file=\"LOGcozi\
+    nhaABC.txt\" body=\"Em anexo, arquivo de log da cozinha [COZINHA ABC SP] rea\
+    lizado realizado as \$hora de \$data na Cozinha [TESTE].\""
+
+# Script de limpeza que ainda não está sendo utilizado
+add dont-require-permissions=no name=Clear owner=admin policy=\
+    ftp,reboot,read,write,policy,test,password,sniff,sensitive,romon source="/sy\
+    stem logging action set [find name=memory] target=email\r\
+    \n/system logging action set [find name=memory] target=memory"
+
+# Configura o email
+/tool e-mail
+set address=smtp.office365.com from=cozinhaspteste@outlook.com password=\
+    cozinhasp1313* port=587 start-tls=yes user=cozinhaspteste@outlook.com
+
+# Configura relógio
+/system clock
+set time-zone-name=America/Sao_Paulo
+
+################################################
+# Configurações que vieram de fábrica mas não estamos usando
+
+# /ip firewall filter
+# add action=accept chain=input comment="defconf: accept established,related,untracked" connection-state=established,related,untracked
+# add action=drop chain=input comment="defconf: drop invalid" connection-state=invalid
+# add action=accept chain=input comment="defconf: accept ICMP" protocol=icmp
+# add action=accept chain=input comment="defconf: accept to local loopback (for CAPsMAN)" dst-address=127.0.0.1
+# add action=drop chain=input comment="defconf: drop all not coming from LAN" in-interface-list=!LAN
+# add action=accept chain=forward comment="defconf: accept in ipsec policy" ipsec-policy=in,ipsec
+# add action=accept chain=forward comment="defconf: accept out ipsec policy" ipsec-policy=out,ipsec
+# add action=fasttrack-connection chain=forward comment="defconf: fasttrack" connection-state=established,related
+# add action=accept chain=forward comment="defconf: accept established,related, untracked" connection-state=established,related,untracked
+# add action=drop chain=forward comment="defconf: drop invalid" connection-state=invalid
+# add action=drop chain=forward comment="defconf: drop all from WAN not DSTNATed" connection-nat-state=!dstnat connection-state=new in-interface-list=WAN
+
+# /ip firewall nat
+# add action=masquerade chain=srcnat comment="defconf: masquerade" ipsec-policy=out,none out-interface-list=WAN
+
+# /tool mac-server
+# set allowed-interface-list=LAN
+# 
+# /tool mac-server mac-winbox
+# set allowed-interface-list=LAN
+# 
+# /ip neighbor discovery-settings
+# set discover-interface-list=LAN
