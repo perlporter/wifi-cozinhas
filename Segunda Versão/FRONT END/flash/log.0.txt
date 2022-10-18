@@ -1,0 +1,242 @@
+Jan/01/1970 21:36:09 wireless,info wlan2: pre-shared key authentication not enabled, disable WPS
+Jan/01/1970 21:37:39 wireless,info 00:05:16:58:84:07@wlan2: connected, signal strength -32
+Jan/01/1970 21:37:41 system,info,account user admin logged out from 00:05:16:58:84:07 via winbox
+Jan/01/1970 21:37:44 dhcp,info defconf assigned 192.168.88.253 to 00:05:16:58:84:07
+Jan/01/1970 21:37:49 system,info RouterBoard configuration changed
+Jan/01/1970 21:37:49 system,info,account user admin logged in from 00:05:16:58:84:07 via winbox
+Jan/01/1970 21:37:56 wireless,info 00:05:16:58:84:07@wlan2: disconnected, received disassoc: sending station leaving (8)
+Jan/01/1970 21:37:56 wireless,info 00:05:16:58:84:07@wlan2: connected, signal strength -33
+Jan/01/1970 21:38:12 wireless,info 00:05:16:58:84:07@wlan2: disconnected, received disassoc: sending station leaving (8)
+Jan/01/1970 21:38:14 system,info,account user admin logged out from 00:05:16:58:84:07 via winbox
+Jan/01/1970 21:38:20 dhcp,info defconf deassigned 192.168.88.253 from 00:05:16:58:84:07
+Jan/01/1970 21:38:24 system,info,account user admin logged in from 00:05:16:58:84:07 via winbox
+Jan/01/1970 21:38:24 system,info RouterBoard configuration changed
+Jan/01/1970 21:38:28 system,info,account user admin logged out from 00:05:16:58:84:07 via winbox
+Jan/01/1970 21:38:34 wireless,info 00:05:16:58:84:07@wlan2: connected, signal strength -33
+Jan/01/1970 21:38:37 dhcp,info defconf assigned 192.168.88.253 to 00:05:16:58:84:07
+Jan/01/1970 21:39:22 interface,info ether3 link down
+Jan/01/1970 21:05:42 wireless,info wlan1: pre-shared key authentication not enabled, disable WPS
+Jan/01/1970 21:05:43 bridge,info hardware offloading activated on bridge "bridge" ports: ether2
+Jan/01/1970 21:05:43 bridge,info hardware offloading activated on bridge "bridge" ports: ether3
+Jan/01/1970 21:05:43 bridge,info hardware offloading activated on bridge "bridge" ports: ether4
+Jan/01/1970 21:05:43 bridge,info hardware offloading activated on bridge "bridge" ports: ether5
+Jan/01/1970 21:05:45 interface,info ether4 link up (speed 100M, full duplex)
+Jan/01/1970 21:05:46 interface,info ether4 link down
+Jan/01/1970 21:05:50 interface,info ether4 link up (speed 100M, full duplex)
+Jan/01/1970 21:06:01 wireless,info 00:05:16:58:84:07@wlan1: connected, signal strength -24
+Jan/01/1970 21:06:06 dhcp,info defconf assigned 192.168.88.253 to 00:05:16:58:84:07
+Jan/01/1970 21:06:06 dhcp,info defconf deassigned 192.168.88.253 from 00:05:16:58:84:07
+Jan/01/1970 21:06:06 dhcp,info defconf assigned 192.168.88.253 to 00:05:16:58:84:07
+Jan/01/1970 21:06:17 wireless,info 00:05:16:58:84:07@wlan1: disconnected, received disassoc: sending station leaving (8)
+Jan/01/1970 21:06:17 wireless,info 00:05:16:58:84:07@wlan1: connected, signal strength -37
+Jan/01/1970 21:06:33 wireless,info 00:05:16:58:84:07@wlan1: disconnected, received disassoc: sending station leaving (8)
+Jan/01/1970 21:06:42 dhcp,info defconf deassigned 192.168.88.253 from 00:05:16:58:84:07
+Jan/01/1970 21:06:46 wireless,info 00:05:16:58:84:07@wlan1: connected, signal strength -32
+Jan/01/1970 21:06:51 dhcp,info defconf assigned 192.168.88.253 to 00:05:16:58:84:07
+Jan/01/1970 21:08:54 interface,info ether4 link down
+Jan/01/1970 21:08:56 interface,info ether1 link up (speed 100M, full duplex)
+Jan/01/1970 21:08:58 dhcp,info dhcp-client on ether1 got IP address 192.168.15.68
+Oct/01/2022 22:47:20 wireless,info 00:05:16:58:84:07@wlan1: disconnected, received disassoc: sending station leaving (8)
+Oct/01/2022 22:48:37 wireless,info 00:05:16:58:84:07@wlan1: connected, signal strength -39
+Oct/01/2022 22:48:37 wireless,info 00:05:16:58:84:07@wlan1: disconnected, received disassoc: sending station leaving (8)
+Oct/01/2022 22:48:38 wireless,info 00:05:16:58:84:07@wlan1: connected, signal strength -27
+Oct/01/2022 22:49:33 interface,info ether1 link down
+Oct/01/2022 22:49:33 dhcp,info dhcp-client on ether1 lost IP address 192.168.15.68 - lease stopped locally
+Oct/01/2022 22:49:34 interface,info ether2 link up (speed 100M, full duplex)
+Oct/01/2022 22:52:23 interface,info ether2 link down
+Oct/01/2022 22:52:25 interface,info ether5 link up (speed 100M, full duplex)
+Oct/01/2022 22:52:36 wireless,info 00:05:16:58:84:07@wlan1: disconnected, received disassoc: sending station leaving (8)
+Oct/01/2022 22:52:37 dhcp,info defconf deassigned 192.168.88.253 from 00:05:16:58:84:07
+Oct/01/2022 22:52:57 wireless,info wlan2: pre-shared key authentication not enabled, disable WPS
+Oct/01/2022 22:53:25 wireless,info 00:05:16:58:84:07@wlan1: connected, signal strength -30
+Oct/01/2022 22:53:30 dhcp,info defconf assigned 192.168.88.253 to 00:05:16:58:84:07
+Oct/01/2022 22:53:41 wireless,info 00:05:16:58:84:07@wlan1: disconnected, received disassoc: sending station leaving (8)
+Oct/01/2022 22:53:41 wireless,info 00:05:16:58:84:07@wlan1: connected, signal strength -30
+Oct/01/2022 22:54:04 wireless,info 00:05:16:58:84:07@wlan1: disconnected, received disassoc: sending station leaving (8)
+Oct/01/2022 22:54:12 dhcp,info defconf deassigned 192.168.88.253 from 00:05:16:58:84:07
+Oct/01/2022 22:54:58 interface,info ether5 link down
+Oct/01/2022 22:55:02 interface,info ether1 link up (speed 100M, full duplex)
+Oct/01/2022 22:55:04 dhcp,info dhcp-client on ether1 got IP address 192.168.15.68
+Oct/01/2022 22:55:36 interface,info ether1 link down
+Oct/01/2022 22:55:36 dhcp,info dhcp-client on ether1 lost IP address 192.168.15.68 - lease stopped locally
+Oct/01/2022 22:55:38 interface,info ether3 link up (speed 100M, full duplex)
+Oct/01/2022 22:56:15 interface,info ether3 link down
+Oct/01/2022 22:56:16 interface,info ether1 link up (speed 100M, full duplex)
+Oct/01/2022 22:56:17 interface,info ether1 link down
+Oct/01/2022 22:56:18 interface,info ether1 link up (speed 100M, full duplex)
+Oct/01/2022 22:56:21 dhcp,info dhcp-client on ether1 got IP address 192.168.15.68
+Oct/01/2022 22:57:04 interface,info ether1 link down
+Oct/01/2022 22:57:04 dhcp,info dhcp-client on ether1 lost IP address 192.168.15.68 - lease stopped locally
+Oct/01/2022 22:57:06 interface,info ether3 link up (speed 100M, full duplex)
+Oct/01/2022 22:58:11 interface,info ether3 link down
+Jan/01/1970 21:05:41 wireless,info wlan1: pre-shared key authentication not enabled, disable WPS
+Jan/01/1970 21:05:42 bridge,info hardware offloading activated on bridge "bridge" ports: ether2
+Jan/01/1970 21:05:42 bridge,info hardware offloading activated on bridge "bridge" ports: ether3
+Jan/01/1970 21:05:42 bridge,info hardware offloading activated on bridge "bridge" ports: ether4
+Jan/01/1970 21:05:42 bridge,info hardware offloading activated on bridge "bridge" ports: ether5
+Jan/01/1970 21:05:42 wireless,info wlan1: pre-shared key authentication not enabled, disable WPS
+Jan/01/1970 21:05:43 bridge,info hardware offloading activated on bridge "bridge" ports: ether2
+Jan/01/1970 21:05:43 bridge,info hardware offloading activated on bridge "bridge" ports: ether3
+Jan/01/1970 21:05:43 bridge,info hardware offloading activated on bridge "bridge" ports: ether4
+Jan/01/1970 21:05:43 bridge,info hardware offloading activated on bridge "bridge" ports: ether5
+Jan/01/1970 21:05:41 wireless,info wlan1: pre-shared key authentication not enabled, disable WPS
+Jan/01/1970 21:05:42 bridge,info hardware offloading activated on bridge "bridge" ports: ether2
+Jan/01/1970 21:05:42 bridge,info hardware offloading activated on bridge "bridge" ports: ether3
+Jan/01/1970 21:05:42 bridge,info hardware offloading activated on bridge "bridge" ports: ether4
+Jan/01/1970 21:05:42 bridge,info hardware offloading activated on bridge "bridge" ports: ether5
+Jan/01/1970 21:05:53 interface,info ether1 link up (speed 100M, full duplex)
+Jan/01/1970 21:05:54 dhcp,info dhcp-client on ether1 got IP address 192.168.15.68
+Oct/15/2022 09:43:31 wireless,info 00:05:16:58:84:07@wlan1: connected, signal strength -39
+Oct/15/2022 09:43:36 dhcp,info defconf assigned 192.168.88.254 to 00:05:16:58:84:07
+Oct/15/2022 09:44:02 wireless,info 00:05:16:58:84:07@wlan1: disconnected, received disassoc: sending station leaving (8)
+Oct/15/2022 09:44:26 wireless,info wlan2: pre-shared key authentication not enabled, disable WPS
+Jan/01/1970 21:05:41 wireless,info wlan1: pre-shared key authentication not enabled, disable WPS
+Jan/01/1970 21:05:42 bridge,info hardware offloading activated on bridge "bridge" ports: ether2
+Jan/01/1970 21:05:42 bridge,info hardware offloading activated on bridge "bridge" ports: ether3
+Jan/01/1970 21:05:42 bridge,info hardware offloading activated on bridge "bridge" ports: ether4
+Jan/01/1970 21:05:42 bridge,info hardware offloading activated on bridge "bridge" ports: ether5
+Jan/01/1970 21:05:44 interface,info ether1 link up (speed 100M, full duplex)
+Jan/01/1970 21:05:45 dhcp,info dhcp-client on ether1 got IP address 192.168.15.68
+Oct/15/2022 09:51:40 interface,info ether1 link down
+Oct/15/2022 09:51:40 dhcp,info dhcp-client on ether1 lost IP address 192.168.15.68 - lease stopped locally
+Oct/15/2022 09:51:41 interface,info ether1 link up (speed 100M, full duplex)
+Oct/15/2022 09:51:43 dhcp,info dhcp-client on ether1 got IP address 192.168.15.68
+Jan/01/1970 21:05:41 wireless,info wlan1: pre-shared key authentication not enabled, disable WPS
+Jan/01/1970 21:05:42 bridge,info hardware offloading activated on bridge "bridge" ports: ether2
+Jan/01/1970 21:05:42 bridge,info hardware offloading activated on bridge "bridge" ports: ether3
+Jan/01/1970 21:05:42 bridge,info hardware offloading activated on bridge "bridge" ports: ether4
+Jan/01/1970 21:05:42 bridge,info hardware offloading activated on bridge "bridge" ports: ether5
+Jan/01/1970 21:05:44 interface,info ether1 link up (speed 100M, full duplex)
+Jan/01/1970 21:05:46 dhcp,info dhcp-client on ether1 got IP address 192.168.15.68
+Oct/15/2022 09:56:59 interface,info ether1 link down
+Oct/15/2022 09:56:59 dhcp,info dhcp-client on ether1 lost IP address 192.168.15.68 - lease stopped locally
+Oct/15/2022 09:57:00 interface,info ether1 link up (speed 100M, full duplex)
+Oct/15/2022 09:57:02 dhcp,info dhcp-client on ether1 got IP address 192.168.15.68
+Oct/15/2022 09:58:02 wireless,info 00:05:16:58:84:07@wlan1: connected, signal strength -42
+Oct/15/2022 09:58:07 dhcp,info defconf deassigned 192.168.88.254 from 00:05:16:58:84:07
+Oct/15/2022 09:58:07 dhcp,info defconf assigned 192.168.88.254 to 00:05:16:58:84:07
+Oct/15/2022 09:58:08 system,info,account user admin logged in from 192.168.88.254 via winbox
+Oct/15/2022 09:58:33 wireless,info 00:05:16:58:84:07@wlan1: disconnected, received disassoc: sending station leaving (8)
+Oct/15/2022 09:59:02 system,info,account user admin logged out from 192.168.88.254 via winbox
+Oct/15/2022 10:02:52 interface,info ether1 link down
+Oct/15/2022 10:02:52 dhcp,info dhcp-client on ether1 lost IP address 192.168.15.68 - lease stopped locally
+Oct/15/2022 10:02:55 interface,info ether2 link up (speed 100M, full duplex)
+Oct/15/2022 10:04:10 interface,info ether2 link down
+Oct/15/2022 10:04:21 interface,info ether1 link up (speed 100M, full duplex)
+Oct/15/2022 10:04:23 dhcp,info dhcp-client on ether1 got IP address 192.168.15.68
+Oct/15/2022 10:05:01 interface,info ether1 link down
+Oct/15/2022 10:05:01 dhcp,info dhcp-client on ether1 lost IP address 192.168.15.68 - lease stopped locally
+Oct/15/2022 10:05:09 interface,info ether2 link up (speed 100M, full duplex)
+Oct/15/2022 10:05:42 wireless,info wlan2: pre-shared key authentication not enabled, disable WPS
+Oct/15/2022 10:06:44 interface,info ether2 link down
+Oct/15/2022 10:06:47 interface,info ether3 link up (speed 100M, full duplex)
+Oct/15/2022 10:07:26 system,info,account user admin logged in from 00:05:16:58:84:07 via winbox
+Oct/15/2022 10:07:44 system,info,account user admin logged in via local
+Oct/15/2022 10:08:07 dhcp,info defconf deassigned 192.168.88.254 from 00:05:16:58:84:07
+Oct/15/2022 11:43:28 system,info,account user admin logged out via local
+Oct/15/2022 11:44:03 system,info resetting system configuration
+Oct/15/2022 11:44:04 system,info,account user admin logged out from 00:05:16:58:84:07 via winbox
+Jan/02/1970 00:20:34 system,info log rule added by admin
+Jan/02/1970 00:20:34 system,info new script scheduled by admin
+Jan/02/1970 00:20:34 system,info new script scheduled by admin
+Jan/02/1970 00:20:35 system,info,account user admin logged out from 00:05:16:58:84:07 via winbox
+Jan/02/1970 00:20:35 system,info,account user admin logged out via local
+Jan/02/1970 00:20:35 system,info filter rule added
+Jan/02/1970 00:20:35 system,info nat rule added
+Jan/02/1970 00:20:36 wireless,info wlan1: pre-shared key authentication not enabled, disable WPS
+Jan/02/1970 00:20:43 system,info,account user admin logged in from 00:05:16:58:84:07 via winbox
+Jan/02/1970 00:20:43 system,info,account user admin logged in via local
+Jan/02/1970 00:20:55 system,info,account user admin logged out via local
+Jan/02/1970 00:20:58 system,info,account user admin logged in via local
+Jan/02/1970 00:21:01 system,info,account user admin logged out via local
+Jan/02/1970 00:21:33 system,info,account user admin logged out from 00:05:16:58:84:07 via winbox
+Jan/02/1970 00:23:16 system,info,account user admin logged in from 00:05:16:58:84:07 via winbox
+Jan/02/1970 00:23:25 system,info,account user admin logged in via local
+Jan/02/1970 00:23:38 system,info,account user admin logged out via local
+Jan/02/1970 00:23:40 system,info,account user admin logged in via local
+Jan/02/1970 00:24:12 system,info,account user admin logged out via local
+Jan/02/1970 00:24:15 system,info,account user admin logged in via local
+Jan/02/1970 00:24:17 system,info,account user admin logged out via local
+Jan/02/1970 00:24:25 system,info resetting system configuration
+Jan/02/1970 00:24:25 system,info,account user admin logged out from 00:05:16:58:84:07 via winbox
+Jan/02/1970 00:02:50 system,info log rule added by admin
+Jan/02/1970 00:02:50 system,info new script scheduled by admin
+Jan/02/1970 00:02:50 system,info new script scheduled by admin
+Jan/02/1970 00:02:50 system,info,account user admin logged out from 00:05:16:58:84:07 via winbox
+Jan/02/1970 00:02:50 system,info,account user admin logged out via local
+Jan/02/1970 00:02:51 system,info filter rule added
+Jan/02/1970 00:02:51 system,info nat rule added
+Jan/02/1970 00:02:51 wireless,info wlan1: pre-shared key authentication not enabled, disable WPS
+Jan/02/1970 00:02:58 system,info,account user admin logged in from 00:05:16:58:84:07 via winbox
+Jan/02/1970 00:02:59 system,info,account user admin logged in via local
+Jan/02/1970 00:04:13 wireless,info 6E:6D:FB:B2:D3:FB@wlan1: connected, signal strength -38
+Jan/02/1970 00:04:19 dhcp,info dhcp1 assigned 10.5.50.254 to 6E:6D:FB:B2:D3:FB
+Jan/02/1970 00:05:15 wireless,info 6E:6D:FB:B2:D3:FB@wlan1: disconnected, received disassoc: sending station leaving (8)
+Jan/02/1970 00:12:56 wireless,info wlan2: pre-shared key authentication not enabled, disable WPS
+Jan/02/1970 00:14:19 dhcp,info dhcp1 deassigned 10.5.50.254 from 6E:6D:FB:B2:D3:FB
+Jan/02/1970 00:23:37 system,info hotspot server hotspot1 changed by admin
+Jan/02/1970 00:23:47 wireless,info 6E:6D:FB:B2:D3:FB@wlan1: connected, signal strength -60
+Jan/02/1970 00:23:53 dhcp,info dhcp1 assigned 10.5.50.254 to 6E:6D:FB:B2:D3:FB
+Jan/02/1970 00:24:24 system,info hotspot server hotspot1 changed by admin
+Jan/02/1970 00:24:38 wireless,info 6E:6D:FB:B2:D3:FB@wlan1: disconnected, received disassoc: sending station leaving (8)
+Jan/02/1970 00:24:38 wireless,info C6:57:7C:E9:5B:A3@wlan2: connected, signal strength -57
+Jan/02/1970 00:24:45 dhcp,info dhcp1 assigned 10.5.50.251 to C6:57:7C:E9:5B:A3
+Jan/02/1970 00:24:48 wireless,info C6:57:7C:E9:5B:A3@wlan2: disconnected, received disassoc: sending station leaving (8)
+Jan/02/1970 00:24:48 wireless,info 6E:6D:FB:B2:D3:FB@wlan1: connected, signal strength -63
+Jan/02/1970 00:24:53 dhcp,info dhcp1 deassigned 10.5.50.254 from 6E:6D:FB:B2:D3:FB
+Jan/02/1970 00:24:54 dhcp,info dhcp1 assigned 10.5.50.254 to 6E:6D:FB:B2:D3:FB
+Jan/02/1970 00:25:28 system,info hotspot server hotspot1 changed by admin
+Jan/02/1970 00:25:33 wireless,info 6E:6D:FB:B2:D3:FB@wlan1: disconnected, received disassoc: sending station leaving (8)
+Jan/02/1970 00:25:39 wireless,info 6E:6D:FB:B2:D3:FB@wlan1: connected, signal strength -54
+Jan/02/1970 00:25:43 dhcp,info dhcp1 deassigned 10.5.50.254 from 6E:6D:FB:B2:D3:FB
+Jan/02/1970 00:25:44 dhcp,info dhcp1 assigned 10.5.50.254 to 6E:6D:FB:B2:D3:FB
+Jan/02/1970 00:26:01 wireless,info 6E:6D:FB:B2:D3:FB@wlan1: disconnected, received disassoc: sending station leaving (8)
+Jan/02/1970 00:26:01 wireless,info C6:57:7C:E9:5B:A3@wlan2: connected, signal strength -58
+Jan/02/1970 00:26:05 dhcp,info dhcp1 deassigned 10.5.50.251 from C6:57:7C:E9:5B:A3
+Jan/02/1970 00:26:06 dhcp,info dhcp1 assigned 10.5.50.251 to C6:57:7C:E9:5B:A3
+Jan/02/1970 00:26:43 wireless,info C6:57:7C:E9:5B:A3@wlan2: disconnected, received disassoc: sending station leaving (8)
+Jan/02/1970 00:26:43 wireless,info 6E:6D:FB:B2:D3:FB@wlan1: connected, signal strength -52
+Jan/02/1970 00:26:48 dhcp,info dhcp1 deassigned 10.5.50.254 from 6E:6D:FB:B2:D3:FB
+Jan/02/1970 00:26:49 dhcp,info dhcp1 assigned 10.5.50.254 to 6E:6D:FB:B2:D3:FB
+Jan/02/1970 00:27:36 system,info hotspot server hotspot1 changed by admin
+Jan/02/1970 00:27:42 wireless,info 6E:6D:FB:B2:D3:FB@wlan1: disconnected, received disassoc: sending station leaving (8)
+Jan/02/1970 00:28:07 wireless,info C6:57:7C:E9:5B:A3@wlan2: connected, signal strength -57
+Jan/02/1970 00:28:12 dhcp,info dhcp1 deassigned 10.5.50.251 from C6:57:7C:E9:5B:A3
+Jan/02/1970 00:28:13 dhcp,info dhcp1 assigned 10.5.50.251 to C6:57:7C:E9:5B:A3
+Jan/02/1970 00:28:19 wireless,info C6:57:7C:E9:5B:A3@wlan2: disconnected, received disassoc: sending station leaving (8)
+Jan/02/1970 00:28:19 wireless,info 6E:6D:FB:B2:D3:FB@wlan1: connected, signal strength -54
+Jan/02/1970 00:28:24 dhcp,info dhcp1 deassigned 10.5.50.254 from 6E:6D:FB:B2:D3:FB
+Jan/02/1970 00:28:25 dhcp,info dhcp1 assigned 10.5.50.254 to 6E:6D:FB:B2:D3:FB
+Jan/02/1970 00:30:16 system,info hotspot server profile default changed by admin
+Jan/02/1970 00:31:08 wireless,info 6E:6D:FB:B2:D3:FB@wlan1: disconnected, received disassoc: sending station leaving (8)
+Jan/02/1970 00:31:08 wireless,info C6:57:7C:E9:5B:A3@wlan2: connected, signal strength -56
+Jan/02/1970 00:31:13 dhcp,info dhcp1 deassigned 10.5.50.251 from C6:57:7C:E9:5B:A3
+Jan/02/1970 00:31:14 dhcp,info dhcp1 assigned 10.5.50.251 to C6:57:7C:E9:5B:A3
+Jan/02/1970 00:31:17 wireless,info C6:57:7C:E9:5B:A3@wlan2: disconnected, received disassoc: sending station leaving (8)
+Jan/02/1970 00:31:18 wireless,info 6E:6D:FB:B2:D3:FB@wlan1: connected, signal strength -61
+Jan/02/1970 00:31:22 dhcp,info dhcp1 deassigned 10.5.50.254 from 6E:6D:FB:B2:D3:FB
+Jan/02/1970 00:31:23 dhcp,info dhcp1 assigned 10.5.50.254 to 6E:6D:FB:B2:D3:FB
+Jan/02/1970 00:31:36 interface,info ether3 link down
+Jan/02/1970 00:31:38 interface,info ether1 link up (speed 100M, full duplex)
+Jan/02/1970 00:00:20 bridge,info hardware offloading activated on bridge "bridge" ports: ether2
+Jan/02/1970 00:00:20 bridge,info hardware offloading activated on bridge "bridge" ports: ether3
+Jan/02/1970 00:00:20 bridge,info hardware offloading activated on bridge "bridge" ports: ether4
+Jan/02/1970 00:00:20 bridge,info hardware offloading activated on bridge "bridge" ports: ether5
+Jan/02/1970 00:00:21 interface,info ether1 link up (speed 100M, full duplex)
+Jan/02/1970 00:00:23 dhcp,info dhcp-client on ether1 got IP address 192.168.15.68
+Jan/02/1970 00:00:24 wireless,info wlan1: pre-shared key authentication not enabled, disable WPS
+Oct/15/2022 12:42:31 system,info,account user admin logged in from 00:05:16:58:84:07 via winbox
+Oct/15/2022 12:42:41 wireless,info 6E:6D:FB:B2:D3:FB@wlan1: connected, signal strength -47
+Oct/15/2022 12:43:49 system,info hotspot server profile default changed by admin
+Oct/15/2022 12:43:52 wireless,info 6E:6D:FB:B2:D3:FB@wlan1: disconnected, received disassoc: sending station leaving (8)
+Oct/15/2022 12:44:00 wireless,info 6E:6D:FB:B2:D3:FB@wlan1: connected, signal strength -40
+Oct/15/2022 12:44:04 wireless,info 6E:6D:FB:B2:D3:FB@wlan1: disconnected, received disassoc: sending station leaving (8)
+Oct/15/2022 12:44:08 wireless,info 6E:6D:FB:B2:D3:FB@wlan1: connected, signal strength -21
+Oct/15/2022 12:45:10 wireless,info 6E:6D:FB:B2:D3:FB@wlan1: disconnected, received disassoc: sending station leaving (8)
+Oct/15/2022 12:45:18 wireless,info 6E:6D:FB:B2:D3:FB@wlan1: connected, signal strength -31
+Oct/15/2022 12:45:38 dhcp,info dhcp1 deassigned 10.5.50.254 from 6E:6D:FB:B2:D3:FB
+Oct/15/2022 12:45:38 wireless,info 6E:6D:FB:B2:D3:FB@wlan1: disconnected, received disassoc: sending station leaving (8)
+Oct/15/2022 12:45:44 wireless,info 6E:6D:FB:B2:D3:FB@wlan1: connected, signal strength -31
+Oct/15/2022 12:45:49 dhcp,info dhcp1 assigned 10.5.50.254 to 6E:6D:FB:B2:D3:FB
+Oct/15/2022 12:46:13 wireless,info 6E:6D:FB:B2:D3:FB@wlan1: disconnected, received disassoc: sending station leaving (8)
+Oct/15/2022 12:46:44 wireless,info 6E:6D:FB:B2:D3:FB@wlan1: connected, signal strength -35
