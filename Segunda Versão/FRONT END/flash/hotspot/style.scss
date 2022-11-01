@@ -52,10 +52,6 @@ body, html {
             color: #FFF;
         }
      }
-
-    
-      
-      
 }
 
 @keyframes bounce {
@@ -124,7 +120,34 @@ section.summary {
     background-color: $secondary-color;
 }
 
-
+.whatsappbutton {
+    background: none;
+    border: none;
+    display: flex;
+    position: relative;
+    flex-direction: row;
+    padding-top: 50px;
+    justify-content: center;
+    align-items: center;
+    & svg {
+        
+        width: 90px;
+        padding-right: -1px;
+        position: absolute;
+        left: -10px;
+    }
+    & h3 {
+        background-color: #DE1833;
+        border-bottom-right-radius: 8px;
+        border-top-right-radius: 8px;
+        // position: absolute;
+        padding: 24px;
+        margin-left: 55px;
+        padding-left: 32px;
+        color: #FFF;
+        font-size: 24px;
+    }
+}
 
 section.project {
     justify-content: flex-start;
