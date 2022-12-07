@@ -1,0 +1,142 @@
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  MMM      MMM       KKK                          TTTTTTTTTTT      KKK
+  MMMM    MMMM       KKK                          TTTTTTTTTTT      KKK
+  MMM MMMM MMM  III  KKK  KKK  RRRRRR     OOOOOO      TTT     III  KKK  KKK
+  MMM  MM  MMM  III  KKKKK     RRR  RRR  OOO  OOO     TTT     III  KKKKK
+  MMM      MMM  III  KKK KKK   RRRRRR    OOO  OOO     TTT     III  KKK KKK
+  MMM      MMM  III  KKK  KKK  RRR  RRR   OOOOOO      TTT     III  KKK  KKK
+
+  MikroTik RouterOS 6.45.9 (c) 1999-2020       http://www.mikrotik.com/
+
+[?]             Gives the list of available commands
+command [?]     Gives help on the command and list of arguments
+
+[Tab]           Completes the command/word. If the input is ambiguous,
+                a second [Tab] gives possible options
+
+/               Move up to base level
+..              Move up one level
+/command        Use command at the base level
+(2 messages not shown)
+jan/01/1970 21:01:04 system,error,critical router was rebooted without proper shut
+down
+jan/01/1970 21:01:06 system,error,critical router was rebooted without proper shut
+down
+jan/01/1970 21:01:05 system,error,critical router was rebooted without proper shut
+down
+jan/01/1970 21:01:04 system,error,critical router was rebooted without proper shut
+down
+jan/01/1970 21:01:05 system,error,critical router was rebooted without proper shut
+down
+jan/01/1970 21:01:04 system,error,critical router was rebooted without proper shut
+down
+jan/01/1970 21:01:05 system,error,critical router was rebooted without proper shut
+down
+jan/01/1970 21:01:04 system,error,critical router was rebooted without proper shut
+down
+[admin@MikroTik] > export
+# dec/07/2022 20:11:02 by RouterOS 6.45.9
+# software id = L6B8-JEMV
+#
+# model = RB952Ui-5ac2nD
+# serial number = CC460E3AFE97
+/interface bridge
+add admin-mac=DC:2C:6E:37:AB:A0 auto-mac=no comment=defconf name=bridge
+/interface wireless
+set [ find default-name=wlan1 ] band=2ghz-b/g/n channel-width=20/40mhz-XX disabled=no distance=indoors frequency=auto installation=indoor mode=ap-bridge ssid="COZINHA SOLIDARIA 2ghz" \
+    wireless-protocol=802.11
+set [ find default-name=wlan2 ] band=5ghz-a/n/ac channel-width=20/40/80mhz-XXXX disabled=no distance=indoors frequency=auto installation=indoor mode=ap-bridge ssid="COZINHA SOLIDARIA 5ghz" \
+    wireless-protocol=802.11
+/interface list
+add comment=defconf name=WAN
+add comment=defconf name=LAN
+/interface wireless security-profiles
+set [ find default=yes ] supplicant-identity=MikroTik
+/ip hotspot profile
+set [ find default=yes ] html-directory=flash/hotspot login-by=http-chap
+add hotspot-address=10.5.50.1 html-directory=flash/hotspot login-by=http-chap,trial name=hsprof1 trial-uptime-limit=4d trial-uptime-reset=4d
+/ip hotspot user profile
+set [ find default=yes ] keepalive-timeout=1d12h2m mac-cookie-timeout=0s session-timeout=1d12h4m status-autorefresh=1d12h1m
+/ip pool
+add name=default-dhcp ranges=10.5.50.2-10.5.50.254
+/ip dhcp-server
+add address-pool=default-dhcp disabled=no interface=bridge name=dhcp1
+/ip hotspot
+add address-pool=default-dhcp disabled=no interface=bridge name=hotspot1 profile=hsprof1
+/interface bridge port
+add bridge=bridge comment=defconf interface=ether2
+add bridge=bridge comment=defconf interface=ether3
+add bridge=bridge comment=defconf interface=ether4
+add bridge=bridge comment=defconf interface=ether5
+add bridge=bridge comment=defconf interface=wlan1
+add bridge=bridge comment=defconf interface=wlan2
+/interface list member
+add comment=defconf interface=bridge list=LAN
+add comment=defconf interface=ether1 list=WAN
+/ip address
+add address=10.5.50.1/24 comment=defconf interface=bridge network=10.5.50.0
+/ip dhcp-client
+add comment=defconf dhcp-options=hostname,clientid disabled=no interface=ether1
+/ip dhcp-server network
+add address=10.5.50.0/24 comment="hotspot network" gateway=10.5.50.1
+/ip firewall filter
+add action=passthrough chain=unused-hs-chain comment="place hotspot rules here" disabled=yes
+add action=drop chain=connection comment="Jump Target Action Drop" protocol=tcp
+/ip firewall nat
+add action=passthrough chain=unused-hs-chain comment="place hotspot rules here" disabled=yes
+add action=passthrough chain=unused-hs-chain comment="place hotspot rules here" disabled=yes
+add action=masquerade chain=srcnat comment="masquerade hotspot network" src-address=10.5.50.0/24
+/ip hotspot user
+set [ find default=yes ] limit-uptime=1d12h30m
+add limit-uptime=1h name=teste password=teste server=hotspot1
+add comment="counters and limits for trial users" limit-uptime=1d12h30m name=user1
+/ip hotspot walled-garden
+add dst-host=* dst-port=443 server=hotspot1 src-address=0.0.0.0
+add dst-host=* dst-port=80 server=hotspot1 src-address=0.0.0.0
+/system clock
+set time-zone-name=America/Sao_Paulo
+/system logging
+add topics=hotspot
+add action=disk topics=info
+/system scheduler
+add interval=1d name=Backup on-event=Backup policy=ftp,reboot,read,write,policy,test,password,sniff,sensitive,romon start-date=jul/18/2022 start-time=12:04:15
+add interval=1d name=Log on-event=Log policy=ftp,reboot,read,write,policy,test,password,sniff,sensitive,romon start-date=jul/18/2022 start-time=12:04:18
+add interval=1m name="REMOVE HOSTS N\C3O AUTORIZADOS" on-event="REMOVE HOSTS [NAO AUTORIZADOS]" policy=ftp,reboot,read,write,policy,test,password,sniff,sensitive,romon start-date=oct/22/2022 \
+    start-time=11:20:05
+/system script
+add dont-require-permissions=no name=Backup owner=admin policy=ftp,reboot,read,write,policy,test,password,sniff,sensitive,romon source="/system backup save name=BKPcozinhaABC.backup \r\
+    \n:delay 2s \r\
+    \n:global data [/system clock get date] \r\
+    \n:global hora [/system clock get time] \r\
+    \n/tool e-mail send to=\"cozinhaspteste@outlook.com\" subject=\"Mikrotik: Backup Automatico realizado em \$data as \$hora [COZINHA ABC SP]\" file=\"BKPcozinhaTESTE.backup\" body=\"Em anexo\
+    , arquivo de backup da cozinha [COZINHA ABC SP] realizado as \$hora de \$data.\""
+add dont-require-permissions=no name=Log owner=admin policy=ftp,reboot,read,write,policy,test,password,sniff,sensitive,romon source="/log print file=LOGcozinhaABC.txt\r\
+    \n:delay 2s \r\
+    \n:global data [/system clock get date] \r\
+    \n:global hora [/system clock get time] \r\
+    \n/tool e-mail send to=\"cozinhaspteste@outlook.com\" subject=\"Mikrotik: Log Automatico realizado em \$data as \$hora [COZINHA ABC SP]\" file=\"LOGcozinhaABC.txt\" body=\"Em anexo, arquiv\
+    o de log da cozinha [COZINHA ABC SP] realizado realizado as \$hora de \$data na Cozinha [TESTE].\""
+add dont-require-permissions=no name=Clear owner=admin policy=ftp,reboot,read,write,policy,test,password,sniff,sensitive,romon source=\
+    "/system logging action set [find name=memory] target=email\r\
+    \n/system logging action set [find name=memory] target=memory"
+add dont-require-permissions=yes name="REMOVE HOSTS [NAO AUTORIZADOS]" owner=admin policy=ftp,reboot,read,write,policy,test,password,sniff,sensitive,romon source=\
+    "/ip hotspot host remove [/ip hotspot host find where !authorized]"
+/tool e-mail
+set address=smtp.office365.com from=cozinhaspteste@outlook.com password=cozinhasp1313* port=587 start-tls=yes user=cozinhaspteste@outlook.com
