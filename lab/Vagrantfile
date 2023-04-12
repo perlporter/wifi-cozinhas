@@ -1,0 +1,58 @@
+# -*- mode: ruby -*-
+# vi: set ft=ruby :
+
+CLIENT_NAME="cozinha-ubuntu-client"
+CLIENT_BOX="ubuntu/jammy64"
+ROUTER_NAME="cozinha-router"
+NETWORK="cozinha-net"
+
+Vagrant.configure("2") do |config|
+
+  ##################################################
+  # Configuração inicial da máquina cliente
+  ##################################################
+  config.vm.define CLIENT_NAME do |client|
+    client.vm.box = CLIENT_BOX
+    client.vm.hostname = CLIENT_NAME
+    client.vm.provider "virtualbox" do |vb|
+      vb.name = CLIENT_NAME
+      vb.gui = true
+      vb.memory = 2048
+      vb.cpus = 2
+    end
+    
+    # precisamos de um browser (firefox) pra testar, e uns utilitários de rede (ifconfig, traceroute) pra debugar
+    # client.vm.provision "shell", inline: "apt update && apt install net-tools"
+    client.vm.provision :shell, path: "client/initial-setup.sh"
+
+    # precisa instalar o plugin vagrant-reload
+    client.vm.provision :reload
+  end
+
+  ##################################################
+  # Configuração inicial do roteador
+  # Documentação da box: https://github.com/cheretbe/packer-routeros
+  # A imagem vem com 2 placas de rede já configuradas, e queremos mantê-las:
+  # - a primeira é NAT, vamos usar pra acessar a internet
+  # - a segunda é host-only, e usaremos pra conectar via winbox ou webfig
+  ##################################################
+
+  config.vm.define ROUTER_NAME do |router|
+    router.vm.box = "cheretbe/routeros"
+    router.vm.hostname = ROUTER_NAME
+
+    router.vm.provider "virtualbox" do |vb|
+      vb.name = ROUTER_NAME
+      vb.memory = 512
+      vb.cpus = 1
+    end
+
+    # configura a rede privada, que ficará na terceira placa de rede
+    router.vm.network "private_network", virtualbox__intnet: NETWORK, auto_config: false
+
+    # importa o script de configuração inicial, e roda ele por dentro do mikrotik
+    router.vm.provision "routeros_file", name: "Teste Upload", source: "router/initial-setup.rsc", destination: "initial-setup.rsc"
+    router.vm.provision "routeros_command", name: "Teste File", command: "/import initial-setup.rsc", check_script_error: true
+  end
+
+end

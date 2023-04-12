@@ -1,0 +1,6 @@
+#!/bin/bash
+
+export CLIENT="cozinha-ubuntu-client"
+export ROUTER="cozinha-router"
+export NETWORK="cozinha-net"
+
