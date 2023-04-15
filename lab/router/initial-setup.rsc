@@ -2,27 +2,37 @@
 # Vagrantfile para a rede interna
 ###################################
 /interface bridge
-add name=bridge-hotspot
+add name=cozinha-bridge-hotspot
 
 /interface bridge port
-add bridge=bridge-hotspot interface=ether3
+add bridge=cozinha-bridge-hotspot interface=ether3
 
-# Configura rotas do cliente DHCP da porta WAN (interface `host_nat`) pra acessar a internet direito
-# documentação em: https://github.com/cheretbe/packer-routeros#network-configuration
-/ip dhcp-client set [find interface="host_nat"] use-peer-dns=yes add-default-route=yes
+# Cria listas de interfaces para agrupá-las e referenciá-las depois
+/interface list
+add name=LAN
+add name=WAN
+
+# coloca a bridge do hotspot na lista de LAN, e a ether4
+# (interface bridged por onde sai pra internet) na WAN
+/interface list member
+add interface=cozinha-bridge-hotspot list=LAN
+add interface=ether4 list=WAN
+
+# Adiciona cliente dhcp na ether4, pra poder acessar a internet
+/ip dhcp-client add disabled=no interface=ether4
 
 # Pool de IPs e DHCP Server
 ###################################
 /ip pool
 add name=cozinha-pool ranges=10.50.50.2-10.50.50.254
 /ip dhcp-server
-add address-pool=cozinha-pool disabled=no interface=bridge name=cozinha-dhcp-server
+add address-pool=cozinha-pool disabled=no interface=cozinha-bridge-hotspot name=cozinha-dhcp-server
 /ip dhcp-server network
 add address=10.50.50.0/24 comment="rede do hotspot" gateway=10.50.50.1
 
-# Primeiro endereço da rede é bridge, vai ser o gateway de geral q se conectar
+# Primeiro endereço da rede é bridge, vai ser o gateway dos clientes q se conectarem
 /ip address
-add address=10.50.50.1/24 interface=bridge-hotspot network=10.50.50.0
+add address=10.50.50.1/24 interface=cozinha-bridge-hotspot network=10.50.50.0
 
 # Hotspot configurado para derrubar usuários trial em 2 minutos
 # e configurado tb com autenticação por mac
@@ -32,7 +42,7 @@ add dns-name=hotspot.cozinha-lab.mtst hotspot-address=10.50.50.1 login-by=mac,co
   mac-auth-mode=mac-as-username-and-password trial-uptime-limit=2m trial-uptime-reset=2m
 
 /ip hotspot
-add address-pool=cozinha-pool disabled=no interface=bridge-hotspot name=cozinha-hotspot profile=cozinha-profile
+add address-pool=cozinha-pool disabled=no interface=cozinha-bridge-hotspot name=cozinha-hotspot profile=cozinha-profile
 
 # TODO: Já nascer com alguns usuários?
 # /ip hotspot user

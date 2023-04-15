@@ -5,6 +5,7 @@ CLIENT_NAME="cozinha-ubuntu-client"
 CLIENT_BOX="ubuntu/jammy64"
 ROUTER_NAME="cozinha-router"
 NETWORK="cozinha-net"
+BRIDGED_INTERFACE="wlp0s20f3"
 
 Vagrant.configure("2") do |config|
 
@@ -47,8 +48,11 @@ Vagrant.configure("2") do |config|
       vb.cpus = 1
     end
 
-    # configura a rede privada, que ficará na terceira placa de rede
+    # configura 2 novas interfaces de rede:
+    #   - uma rede privada que vai servir o hotspot para os clientes
+    #   - uma rede bridged que vai ser por onde o roteador acessa a internet
     router.vm.network "private_network", virtualbox__intnet: NETWORK, auto_config: false
+    router.vm.network "public_network", bridge: BRIDGED_INTERFACE, auto_config: false
 
     # importa o script de configuração inicial, e roda ele por dentro do mikrotik
     router.vm.provision "routeros_file", name: "Teste Upload", source: "router/initial-setup.rsc", destination: "initial-setup.rsc"
