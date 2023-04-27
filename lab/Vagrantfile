@@ -1,34 +1,17 @@
 # -*- mode: ruby -*-
 # vi: set ft=ruby :
 
-CLIENT_NAME="cozinha-ubuntu-client"
 CLIENT_BOX="ubuntu/jammy64"
+ROUTER_BOX="cheretbe/routeros"
+CLIENT_NAME="cozinha-ubuntu-client"
 ROUTER_NAME="cozinha-router"
 NETWORK="cozinha-net"
-BRIDGED_INTERFACE="wlp0s20f3"
+
+#### Necessário alterar ####
+BRIDGED_INTERFACE="enp2s0"
+############################
 
 Vagrant.configure("2") do |config|
-
-  ##################################################
-  # Configuração inicial da máquina cliente
-  ##################################################
-  config.vm.define CLIENT_NAME do |client|
-    client.vm.box = CLIENT_BOX
-    client.vm.hostname = CLIENT_NAME
-    client.vm.provider "virtualbox" do |vb|
-      vb.name = CLIENT_NAME
-      vb.gui = true
-      vb.memory = 2048
-      vb.cpus = 2
-    end
-    
-    # precisamos de um browser (firefox) pra testar, e uns utilitários de rede (ifconfig, traceroute) pra debugar
-    # client.vm.provision "shell", inline: "apt update && apt install net-tools"
-    client.vm.provision :shell, path: "client/initial-setup.sh"
-
-    # precisa instalar o plugin vagrant-reload
-    client.vm.provision :reload
-  end
 
   ##################################################
   # Configuração inicial do roteador
@@ -39,7 +22,7 @@ Vagrant.configure("2") do |config|
   ##################################################
 
   config.vm.define ROUTER_NAME do |router|
-    router.vm.box = "cheretbe/routeros"
+    router.vm.box = ROUTER_BOX
     router.vm.hostname = ROUTER_NAME
 
     router.vm.provider "virtualbox" do |vb|
@@ -57,6 +40,32 @@ Vagrant.configure("2") do |config|
     # importa o script de configuração inicial, e roda ele por dentro do mikrotik
     router.vm.provision "routeros_file", name: "Teste Upload", source: "router/initial-setup.rsc", destination: "initial-setup.rsc"
     router.vm.provision "routeros_command", name: "Teste File", command: "/import initial-setup.rsc", check_script_error: true
+  end
+
+
+  ##################################################
+  # Configuração inicial da máquina cliente
+  ##################################################
+  
+  config.vm.define CLIENT_NAME do |client|
+    client.vm.box = CLIENT_BOX
+    client.vm.hostname = CLIENT_NAME
+    client.vm.provider "virtualbox" do |vb|
+      vb.name = CLIENT_NAME
+      vb.gui = true
+      vb.memory = 2048
+      vb.cpus = 2
+    end
+    
+    client.vm.provision "file", source: "client/60-lightdm-gtk-greeter.conf", destination: "60-lightdm-gtk-greeter.conf"
+
+    # precisamos de um browser (firefox) pra testar, e uns utilitários de rede (ifconfig, traceroute) pra debugar
+    # client.vm.provision "shell", inline: "apt update && apt install net-tools"
+    client.vm.provision :shell, path: "client/initial-setup.sh"
+
+
+    # precisa instalar o plugin vagrant-reload
+    client.vm.provision :reload
   end
 
 end

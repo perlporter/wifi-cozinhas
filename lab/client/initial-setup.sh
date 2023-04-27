@@ -3,6 +3,9 @@
 export DEBIAN_FRONTEND=noninteractive
 export DEBCONF_NONINTERACTIVE_SEEN=true
 
+# copiando arquivo necessario para login automatico
+sudo mv 60-lightdm-gtk-greeter.conf /etc/lightdm/lightdm.conf.d/
+
 apt update -y
 apt upgrade -y
 

@@ -25,6 +25,7 @@ add interface=ether4 list=WAN
 ###################################
 /ip pool
 add name=cozinha-pool ranges=10.50.50.2-10.50.50.254
+
 /ip dhcp-server
 add address-pool=cozinha-pool disabled=no interface=cozinha-bridge-hotspot name=cozinha-dhcp-server
 /ip dhcp-server network
@@ -34,12 +35,16 @@ add address=10.50.50.0/24 comment="rede do hotspot" gateway=10.50.50.1
 /ip address
 add address=10.50.50.1/24 interface=cozinha-bridge-hotspot network=10.50.50.0
 
+# Radius Server
+/radius 
+add service=hotspot address=10.50.50.1 secret=123456
+
 # Hotspot configurado para derrubar usuários trial em 2 minutos
 # e configurado tb com autenticação por mac
 ###################################
 /ip hotspot profile
-add dns-name=hotspot.cozinha-lab.mtst hotspot-address=10.50.50.1 login-by=mac,cookie,http-chap,https,http-pap,trial name=cozinha-profile \
-  mac-auth-mode=mac-as-username-and-password trial-uptime-limit=2m trial-uptime-reset=2m
+add dns-name=hotspot.cozinha-lab.mtst hotspot-address=10.50.50.1 login-by=http-chap,https,http-pap,trial name=cozinha-profile \
+ https-redirect=no trial-uptime-limit=2m trial-uptime-reset=2m use-radius=yes
 
 /ip hotspot
 add address-pool=cozinha-pool disabled=no interface=cozinha-bridge-hotspot name=cozinha-hotspot profile=cozinha-profile
@@ -80,3 +85,12 @@ add prefix="[wp]" topics=web-proxy
 ###################################
 /system clock
 set time-zone-name=America/Sao_Paulo
+
+# User Manager
+/tool user-manager customer set admin password=vagrant
+/tool user-manager database set db-path=user-manager
+/tool user-manager router 
+add customer="admin" ip-address=10.50.50.1 log=auth-fail name="Radius Server" shared-secret=123456 
+/tool user-manager profile add owner=admin name=default
+/tool user-manager user add customer=admin disabled=no password=mtst username=mtst 
+/tool user-manager user create-and-activate-profile mtst customer=admin profile=default
