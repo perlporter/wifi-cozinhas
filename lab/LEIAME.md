@@ -6,4 +6,10 @@ Instala o winbox no cliente (ubuntu)
 
 Adicionado configuração do RADIUS (client e server), configurado o hotspot
 
-Adicionado usuário no RADIUS user: mtst / pass: mtst
+Para acessar o MIKROTIK USER MANAGER:
+
+http:<IP>/userman/ - não funciona com o ip do hotspot 10.50.50.1
+user: admin / pass: vagrant
+
+Adicionado usuário no RADIUS 
+user: mtst / pass: mtst
