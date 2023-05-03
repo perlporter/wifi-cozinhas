@@ -5,6 +5,7 @@ CLIENT_BOX="ubuntu/jammy64"
 ROUTER_BOX="cheretbe/routeros"
 CLIENT_NAME="cozinha-ubuntu-client"
 ROUTER_NAME="cozinha-router"
+LOG_NAME="debian/bullseye64"
 NETWORK="cozinha-net"
 
 #### Necessário alterar ####

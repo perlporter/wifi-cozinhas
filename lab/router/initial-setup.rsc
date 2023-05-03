@@ -61,8 +61,9 @@ add address-pool=cozinha-pool disabled=no interface=cozinha-bridge-hotspot name=
 # add action=masquerade chain=srcnat ipsec-policy=out,none out-interface=cozinha-bridge-hotspot
 # TODO: Estudar esses masquerades, precisa ter os dois?
 /ip firewall nat
-add action=masquerade chain=srcnat ipsec-policy=out,none out-interface-list=WAN comment="defconf: masquerade"  
-add action=masquerade chain=srcnat src-address=10.5.50.0/24 comment="masquerade hotspot network" 
+add action=masquerade chain=srcnat ipsec-policy=out,none out-interface-list=WAN \
+comment="masquerade" log=yes log-prefix=NAT  
+#add action=masquerade chain=srcnat src-address=10.5.50.0/24 comment="masquerade hotspot network" 
 
 # Servidor SAMBA pra mexermos nos arquivos do hotspot direto por fora
 # do mikrotik
@@ -74,12 +75,22 @@ add directory=/hotspot name=hotspot
 /ip smb users
 add name=cozinha password=cozinha read-only=no
 
+
+/system logging action
+add disk-file-count=5 disk-file-name=nat.log disk-lines-per-file=1000 \
+name=navegacao target=disk
+
 # Configura apresentação dos logs
 ###################################
 /system logging
 add prefix="[hs]" topics=hotspot
 add prefix="[fw]" topics=firewall
 add prefix="[wp]" topics=web-proxy
+
+add action=navegacao prefix=NAT topics=firewall
+
+
+
 
 # Timezone
 ###################################
